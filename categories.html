@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Categories Section */
+        .categories {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: white;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .category-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid #ddd;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card .image-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the container */
+            object-position: center; /* Centers the image within the container */
+        }
+
+        .category-card p {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            border-color: #ff416c;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .category-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .category-card .image-container {
+                width: 80px;
+                height: 80px;
+            }
+
+            .category-card p {
+                font-size: 16px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Shopping Hub
+        <nav>
+            <ul>
+                <li><a href="sellers.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="deal.html">Deals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="categories">
+        <h2>Explore Categories</h2>
+        <div class="category-container">
+            <div class="category-card" onclick="openCategory('ladies')">
+                <div class="image-container">
+                    <img src="girl2.png" alt="Ladies Fashion">
+                </div>
+                <p>Ladies Fashion</p>
+            </div>
+            <div class="category-card" onclick="openCategory('gents')">
+                <div class="image-container">
+                    <img src="boy.png" alt="Gents Fashion">
+                </div>
+                <p>Gents Fashion</p>
+            </div>
+            <div class="category-card" onclick="openCategory('kids')">
+                <div class="image-container">
+                    <img src="kids.png" alt="Kids Wear">
+                </div>
+                <p>Kids Wear</p>
+            </div>
+            <div class="category-card" onclick="openCategory('grocery')">
+                <div class="image-container">
+                    <img src="grocery.png" alt="Grocery">
+                </div>
+                <p>Grocery</p>
+            </div>
+            <div class="category-card" onclick="openCategory('home')">
+                <div class="image-container">
+                    <img src="furniture.png" alt="Home & Furniture">
+                </div>
+                <p>Home & Furniture</p>
+            </div>
+            <div class="category-card" onclick="openCategory('automobile')">
+                <div class="image-container">
+                    <img src="car.png" alt="Automobile">
+                </div>
+                <p>Automobile</p>
+            </div>
+            <div class="category-card" onclick="openCategory('beauty')">
+                <div class="image-container">
+                    <img src="beauty.png" alt="Beauty & Health">
+                </div>
+                <p>Beauty & Health</p>
+            </div>
+            <div class="category-card" onclick="openCategory('sports')">
+                <div class="image-container">
+                    <img src="sports.png" alt="Sports">
+                </div>
+                <p>Sports</p>
+            </div>
+            <div class="category-card" onclick="openCategory('electronics')">
+                <div class="image-container">
+                    <img src="ele.png" alt="Electronics">
+                </div>
+                <p>Electronics</p>
+            </div>
+            <div class="category-card" onclick="openCategory('toys')">
+                <div class="image-container">
+                    <img src="toy.png" alt="Toys & Games">
+                </div>
+                <p>Toys & Games</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>&copy; 2025 Shopping Hub. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle"></h2>
+            <p>You are now viewing the <span id="modalCategory"></span> category.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openCategory(category) {
+            const modal = document.getElementById('categoryModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalCategory = document.getElementById('modalCategory');
+
+            modalTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            modalCategory.textContent = category;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('categoryModal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
