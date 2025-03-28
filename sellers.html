@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndiaMart Explore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles */
+        .product-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+        .header {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb);
+        }
+        .footer {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb);
+            color: white;
+        }
+        .product-image-container {
+            height: 200px; /* Fixed height for the image container */
+            overflow: hidden; /* Ensure the image doesn't overflow */
+            border-radius: 8px; /* Rounded corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .product-image {
+            width: 100%; /* Ensure the image takes full width */
+            height: 100%; /* Ensure the image takes full height */
+            object-fit: contain; /* Fit the entire image without cropping */
+            object-position: center; /* Center the image */
+        }
+        .view-button {
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            transition: background 0.3s ease;
+        }
+        .view-button:hover {
+            background: linear-gradient(90deg, #1e40af, #2563eb);
+        }
+        .nav-link:hover {
+            color: #a5b4fc;
+        }
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6f61;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .rating {
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="header p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="india.png" alt="IndiaMart Logo" class="h-10 w-10 mr-2">
+                <h1 class="text-2xl font-bold">IndiaMart</h1>
+            </div>
+            <div class="flex items-center gap-6">
+                <input type="text" placeholder="Search products..." class="search-bar p-2 rounded-md w-64 text-black focus:ring-2 focus:ring-blue-500">
+                <nav>
+                    <ul class="flex gap-4">
+                        <li><a href="#" class="nav-link hover:underline">Home</a></li>
+                        <li><a href="Categories.html" class="nav-link hover:underline">Categories</a></li>
+                        <li><a href="contact.html" class="nav-link hover:underline">Contact</a></li>
+                        <li><a href="login.html" class="nav-link hover:underline">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="p-6">
+        <!-- Breadcrumbs -->
+        <div class="text-sm text-gray-600 mb-4">
+            <a href="#" class="hover:underline">Home</a> / <a href="#" class="hover:underline">Electronics</a> / <span>Smartphones</span>
+        </div>
+
+        <!-- Filters and Sorting -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="flex gap-4">
+                <select class="p-2 rounded-md border border-gray-300">
+                    <option>Sort by: Popularity</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Newest Arrivals</option>
+                </select>
+                <select class="p-2 rounded-md border border-gray-300">
+                    <option>Filter by: Category</option>
+                    <option>Electronics</option>
+                    <option>Fashion</option>
+                    <option>Home & Kitchen</option>
+                </select>
+            </div>
+            <p class="text-gray-600">Showing 1-8 of 100 products</p>
+        </div>
+
+        <!-- Product Grid -->
+        <h2 class="text-3xl font-semibold mb-6 text-gray-800 text-center">Explore Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Generating multiple product cards -->
+            <script>
+                const products = [
+                    { name: "Smartphone", price: "₹25,999", image: "smart.png", discount: "20% off", rating: 4.5, reviews: 120 },
+                    { name: "Laptop", price: "₹55,999", image: "laptop.png", discount: "15% off", rating: 4.2, reviews: 90 },
+                    { name: "Headphones", price: "₹2,999", image: "headp.png", discount: "10% off", rating: 4.7, reviews: 200 },
+                    { name: "Smartwatch", price: "₹9,999", image: "watch.png", discount: "25% off", rating: 4.0, reviews: 80 },
+                    { name: "Camera", price: "₹45,999", image: "camera.png", discount: "30% off", rating: 4.8, reviews: 150 },
+                    { name: "Tablet", price: "₹19,999", image: "tab.png", discount: "5% off", rating: 3.9, reviews: 60 },
+                    { name: "Monitor", price: "₹14,999", image: "monitor.png", discount: "12% off", rating: 4.6, reviews: 110 },
+                    { name: "Gaming Console", price: "₹39,999", image: "game.png", discount: "18% off", rating: 4.3, reviews: 95 },
+                ];
+                
+                document.write(products.map(product => `
+                    <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-transform relative">
+                        ${product.discount ? `<div class="discount-badge">${product.discount}</div>` : ''}
+                        <div class="product-image-container">
+                            <img src="${product.image}" class="product-image" alt="${product.name}">
+                        </div>
+                        <h3 class="text-lg font-bold mt-3 text-gray-800 text-center">${product.name}</h3>
+                        <p class="text-gray-600 mt-1 text-center">${product.price}</p>
+                        <div class="flex justify-center items-center mt-2">
+                            <span class="rating">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}</span>
+                            <span class="text-sm text-gray-600 ml-2">(${product.reviews} reviews)</span>
+                        </div>
+                        <div class="flex gap-2 mt-4">
+                            <button class="view-button text-white px-4 py-2 rounded-md w-full">Add to Cart</button>
+                            <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300">❤️</button>
+                        </div>
+                    </div>
+                `).join(''));
+            </script>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer p-8 mt-10">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">About IndiaMart</h3>
+                <p class="text-sm">IndiaMart is India's largest online marketplace, connecting buyers with suppliers.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="Categories.html" class="hover:underline">Categories</a></li>
+                    <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    <li><a href="login.html" class="hover:underline">Login</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Policies</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                    <li><a href="#" class="hover:underline">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                <p class="text-sm">Email: support@indiamart.com</p>
+                <p class="text-sm">Phone: +91 123 456 7890</p>
+                <div class="flex gap-4 mt-4">
+                    <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 pt-4 border-t border-gray-700">
+            <p class="text-sm">&copy; 2023 IndiaMart. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

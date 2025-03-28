@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals Section - Indian Mart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        /* Deals Section */
+        .deals-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .deals-section h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .deals-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .deal-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .deal-card .image-container {
+            width: 100%;
+            height: 180px; /* Fixed height for the image container */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9; /* Background color for the container */
+        }
+
+        .deal-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the container */
+            object-position: center; /* Centers the image within the container */
+        }
+
+        .deal-card .deal-info {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .deal-card .deal-info h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+        }
+
+        .deal-card .deal-info p {
+            font-size: 14px;
+            color: #777;
+            margin: 5px 0;
+        }
+
+        .deal-card .deal-info .discount {
+            color: #ff416c;
+            font-weight: bold;
+        }
+
+        .deal-card .deal-info .original-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .deal-card .deal-info .deal-price {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .deal-card .deal-info button {
+            background: #ff416c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .deal-card .deal-info button:hover {
+            background: #ff4b2b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .deals-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .deal-card .image-container {
+                height: 150px; /* Adjust height for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Deals Section -->
+    <section class="deals-section">
+        <h2>Today's Best Deals</h2>
+        <div class="deals-container">
+            <!-- Deal 1 -->
+            <div class="deal-card">
+                <div class="image-container">
+                    <img src="smart.png" alt="Deal 1">
+                </div>
+                <div class="deal-info">
+                    <h3>Smartphone Discount</h3>
+                    <p>Up to 40% off on selected smartphones</p>
+                    <p class="discount">40% OFF</p>
+                    <p class="original-price">₹25,000</p>
+                    <p class="deal-price">₹15,000</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+
+            <!-- Deal 2 -->
+            <div class="deal-card">
+                <div class="image-container">
+                    <img src="furniture.png" alt="Deal 2">
+                </div>
+                <div class="deal-info">
+                    <h3>Home Appliances</h3>
+                    <p>Save big on washing machines and refrigerators</p>
+                    <p class="discount">30% OFF</p>
+                    <p class="original-price">₹50,000</p>
+                    <p class="deal-price">₹35,000</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+
+            <!-- Deal 3 -->
+            <div class="deal-card">
+                <div class="image-container">
+                    <img src="girl2.png" alt="Deal 3">
+                </div>
+                <div class="deal-info">
+                    <h3>Fashion Sale</h3>
+                    <p>Flat 50% off on men's and women's clothing</p>
+                    <p class="discount">50% OFF</p>
+                    <p class="original-price">₹2,000</p>
+                    <p class="deal-price">₹1,000</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+
+            <!-- Deal 4 -->
+            <div class="deal-card">
+                <div class="image-container">
+                    <img src="ele.png" alt="Deal 4">
+                </div>
+                <div class="deal-info">
+                    <h3>Electronics</h3>
+                    <p>Up to 25% off on laptops and accessories</p>
+                    <p class="discount">25% OFF</p>
+                    <p class="original-price">₹60,000</p>
+                    <p class="deal-price">₹45,000</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

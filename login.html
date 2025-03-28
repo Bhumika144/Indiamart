@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .toggle-text {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+        .toggle-text button {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toggle-text button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="form-title">Login</h2>
+        <form id="auth-form">
+            <input type="email" placeholder="Enter your email" required>
+            <input type="password" placeholder="Enter your password" required>
+            <button type="submit" id="submit-btn">Login</button>
+        </form>
+        <p class="toggle-text">
+            <span id="toggle-text">Don't have an account?</span>
+            <button id="toggle-btn">Sign Up</button>
+        </p>
+    </div>
+    
+    <script>
+        const formTitle = document.getElementById("form-title");
+        const toggleText = document.getElementById("toggle-text");
+        const toggleBtn = document.getElementById("toggle-btn");
+        const submitBtn = document.getElementById("submit-btn");
+        let isLogin = true;
+
+        toggleBtn.addEventListener("click", () => {
+            isLogin = !isLogin;
+            formTitle.textContent = isLogin ? "Login" : "Sign Up";
+            toggleText.textContent = isLogin ? "Don't have an account?" : "Already have an account?";
+            toggleBtn.textContent = isLogin ? "Sign Up" : "Login";
+            submitBtn.textContent = isLogin ? "Login" : "Sign Up";
+        });
+    </script>
+</body>
+</html>
